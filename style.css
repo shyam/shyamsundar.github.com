@@ -99,3 +99,16 @@ a:hover {
 
   line-height: 20px;
 }
+
+.class_box_shadow{
+    width: 180px;
+	height: 120px;
+    min-width: 180px;
+    min-height: 120px;
+    background: #ccc;
+    border: 5px solid white;
+    position:relative;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
+}
