@@ -1,37 +1,69 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE HTML> 
+<html lang="en"> 
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Coimbatore Sankarraman Shyam Sundar</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.1.9">
-	<meta name="keywords" content="cs3.in, cs3, c s shyam sundar, coimbatore sankarraman shyam sundar, shyam, thoughtworks, devops" />
-	<script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-22637993-2']);
-	  _gaq.push(['_trackPageview']);
+    <meta name="keywords" content="cs3.in, cs3, c s shyam sundar, coimbatore sankarraman shyam sundar, shyam, thoughtworks, devops" />
+    <style>
+      html, body, div, ul, li, img, a, h1 { padding:0; margin:0; border:0 }
+      html, body { font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif }
+      aside { display:block }
+      img { border-radius:5px; position:relative; padding:10px; box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80) }
+      ul { list-style:none }
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+      #wrapper { width:975px; margin:0 auto; display:-webkit-box; display:box }
+      #sidebar { -webkit-box-flex:0; box-flex:0; width:200px }
+      #content { -webkit-box-flex:1; box-flex:1; display:-webkit-box; display:box; -webkit-box-pack:center; -webkit-box-align:center }
+    </style>
+    <script type="text/javascript">
+      var _gaq = [['_setAccount', 'UA-22637993-2'], ['_trackPageview']];
 
-	</script>
+      (function() {
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
   <body>
-    <div id="main">
-      <p><div class="class_box_shadow"><img src="img/cs3-avatar-201106.jpg" width="180" height="120" alt="C S Shyam Sundar" /></div></p>
+    <h1 title='Coimbatore Sankarraman Shyam Sundar'>cs3.in</h1>
+    <div id='wrapper'>
+      <aside id="sidebar"> 
+        <ul>
+          <li><a href="http://csshyamsundar.wordpress.com/">Thoughtpad</a></li>
+          <li><a href="http://github.com/cs3/">GitHub</a></li>
+          <li><a href="http://www.linkedin.com/in/csshyamsundar/">LinkedIn</a></li>
+          <li><a href="http://www.flickr.com/photos/_cs3_/">Flickr</a></li>
+        </ul>
+      </aside>
+
+      <div id='content'>
+        <img src="img/cs3-avatar-201106.jpg" width="512" height="342" alt="C S Shyam Sundar" title='C S Shyam Sundar' />
+      </div>
     </div>
-    <div id="sidebar">
-      <h2>cs3.in</h2>
-      <ul>
-        <li><a href="http://csshyamsundar.wordpress.com/">Thoughtpad</a></li>
-        <li><a href="http://github.com/cs3/">GitHub</a></li>
-        <li><a href="http://www.linkedin.com/in/csshyamsundar/">LinkedIn</a></li>
-        <li><a href="http://www.flickr.com/photos/_cs3_/">Flickr</a></li>
-      </ul>
-    </div>
-  </body>
+    <div id='latest-posts'></div>
+    <script>
+      var feedData, feedHolder = document.getElementById('latest-posts'),
+          dataHandler = function (data) {
+            feedData = data.query.results.item;
+            processFeed()
+          },
+          parseDate = function (date_str) {
+            return date_str.match(/\w{3,}\,\s(\d{2,})\s(\w{3,})\s(\d{4,})/).slice(1)
+          },
+          processFeed = function () {
+            var content = document.createElement('ul'), html_content = [];
+            feedData.forEach(function (item) {
+              html_content.push('<li>');
+              parseDate(item.pubDate).forEach(function (i) { html_content.push(i + ' ') });
+
+              html_content.push('&raquo; <a href="' + item.link + '">' + item.title + '</a></li>');
+            });
+            content.innerHTML = html_content.join('');
+            feedHolder.appendChild(content);
+          };
+    </script>
+    <script src="http://query.yahooapis.com/v1/public/yql?q=select%20title%2C%20link%2C%20pubDate%20from%20feed%20where%20url%3D'http%3A%2F%2Fcsshyamsundar.wordpress.com%2Ffeed%2F'&format=json&diagnostics=true&callback=dataHandler"></script>
+  </body> 
 </html>
