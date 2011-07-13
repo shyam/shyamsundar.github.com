@@ -8,13 +8,18 @@
     <style>
       html, body, div, ul, li, img, a, h1 { padding:0; margin:0; border:0 }
       html, body { font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif }
-      aside { display:block }
+      nav, figure { display:block }
       img { border-radius:5px; position:relative; padding:10px; box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80) }
       ul { list-style:none }
 
-      #wrapper { width:975px; margin:0 auto; display:-webkit-box; display:box }
-      #sidebar { -webkit-box-flex:0; box-flex:0; width:200px }
-      #content { -webkit-box-flex:1; box-flex:1; display:-webkit-box; display:box; -webkit-box-pack:center; -webkit-box-align:center }
+      body { font-size:100%; width:975px; margin:0 auto;  }
+      #latest-posts em { font-style:normal; color:#aaa; font-family:monotype; display:inline-block; text-align:right; width:25px; padding:0 5px 0 0 }
+      header { margin:30px 0 }
+      figcaption { clip:rect(0,0,0,0); position:absolute }
+      h1, figure, nav { display:table-cell; vertical-align:middle; text-align:center; width:10% }
+      figure { width:60% }
+      #latest-posts { display:table-row; width:100% }
+      #latest-posts ul { display:table-cell; width:100% }
     </style>
     <script type="text/javascript">
       var _gaq = [['_setAccount', 'UA-22637993-2'], ['_trackPageview']];
@@ -27,22 +32,25 @@
     </script>
   </head>
   <body>
-    <h1 title='Coimbatore Sankarraman Shyam Sundar'>cs3.in</h1>
-    <div id='wrapper'>
-      <aside id="sidebar"> 
+    <header>
+      <h1 title='Coimbatore Sankarraman Shyam Sundar'>cs3.in</h1>
+      <figure>
+        <img src="img/cs3-avatar-201106.jpg" width="512" height="342" alt="C S Shyam Sundar" title='C S Shyam Sundar' />
+        <figcaption>Photo of C S Shyam Sundar</figcaption>
+      </figure>
+      <nav>
         <ul>
           <li><a href="http://csshyamsundar.wordpress.com/">Thoughtpad</a></li>
           <li><a href="http://github.com/cs3/">GitHub</a></li>
           <li><a href="http://www.linkedin.com/in/csshyamsundar/">LinkedIn</a></li>
           <li><a href="http://www.flickr.com/photos/_cs3_/">Flickr</a></li>
         </ul>
-      </aside>
+      </nav>
+    </header>
 
-      <div id='content'>
-        <img src="img/cs3-avatar-201106.jpg" width="512" height="342" alt="C S Shyam Sundar" title='C S Shyam Sundar' />
-      </div>
-    </div>
     <div id='latest-posts'></div>
+
+    <footer></footer>
     <script>
       var feedData, feedHolder = document.getElementById('latest-posts'),
           dataHandler = function (data) {
@@ -56,7 +64,7 @@
             var content = document.createElement('ul'), html_content = [];
             feedData.forEach(function (item) {
               html_content.push('<li>');
-              parseDate(item.pubDate).forEach(function (i) { html_content.push(i + ' ') });
+              parseDate(item.pubDate).forEach(function (i) { html_content.push('<em>' + i + '</em> ') });
 
               html_content.push('&raquo; <a href="' + item.link + '">' + item.title + '</a></li>');
             });
