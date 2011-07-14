@@ -1,0 +1,15 @@
+/* TEAM */
+	Curator:CS Shyam Sundar
+	From:Chennai, India
+
+	Front-end developer: Livingston Samuel
+	Twitter: @delivi
+  Contact: mail [at] livi.co
+  Site: delivi.com
+	From:Chennai, India
+
+/* SITE */
+	Last update:2011/07/15
+	Language:English
+  Standards: HTML5, CSS3
+	IDE: Notepad++
