@@ -58,7 +58,7 @@
     </header>
 
     <div id='latest-posts' class='posts'></div>
-
+    
     <footer></footer>
     <script>
       (function ( window, document ) {
@@ -77,7 +77,7 @@
               });
               content.innerHTML = html_content.join('');
               feedHolder.appendChild(content);
-
+		
               html_content = null;
               content = null;
               feedData = null;
@@ -90,5 +90,6 @@
       }( window, document ));
     </script>
     <script src="http://query.yahooapis.com/v1/public/yql?q=select%20title%2C%20link%2C%20pubDate%20from%20feed%20where%20url%3D'http%3A%2F%2Fthoughtpad.cs3.in%2Ffeed%2F'&format=json&callback=dataHandler"></script>
+    <br /><br /><center><a href="http://www.fuelly.com/driver/cs3/sunny" target="_blank"><img src="http://mefi.us/images/fuelly/sig-metric2/139548.png" width="500" height="63" alt="Fuelly" title="Share and compare mileage at Fuelly" border="0"/></a></center><br />
   </body> 
 </html>
